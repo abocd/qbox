@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="aboc">
+    <script type="text/javascript" src="js/qbox.js"></script>
+</head>
+<body>
+
+<h3>轻弹窗</h3>
+
+<dl>
+<dt>
+演示1.<a href="javascript:void(0);" onclick="demo1()">只有一个确认</a>
+</dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>
+        box.alert("我出来了,点击确定弹出alert",function(d){
+            if(d){
+                alert("弹出了一个alert");
+            }
+        },{
+            title:'自定义的提示标题'
+        })
+        </pre>
+    </dd>
+    <dt>演示2.<a href="javascript:void(0);" onclick="demo2()">有确认和取消</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>
+        box.confirm("确定和取消弹出的提示不一样哦",function(d){
+            if(d){
+                alert("yes");
+            } else {
+                alert("no")
+            }
+        },{
+            title:'自定义的提示标题'
+        })
+        </pre>
+    </dd>
+</dl>
+<script type="text/javascript">
+    var box = new qbox();
+    function demo1(){
+        box.alert("我出来了,点击确定弹出alert",function(d){
+            if(d){
+                alert("弹出了一个alert");
+            }
+        },{
+            title:'自定义的提示标题'
+        })
+    }
+    function demo2(){
+        box.confirm("确定和取消弹出的提示不一样哦",function(d){
+            if(d){
+                alert("yes");
+            } else {
+                alert("no")
+            }
+        },{
+            title:'自定义的提示标题'
+        })
+    }
+</script>
+</body>
+</html>
