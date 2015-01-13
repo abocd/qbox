@@ -1,5 +1,6 @@
 # qbox
 #####作者:aboc Email:mayinhua@gmail.com
+[我的php之旅](http://www.phpec.org)
 
 ##轻弹窗的使用说明
 
@@ -34,3 +35,5 @@ box.confirm("确定和取消弹出的提示不一样哦",function(d){
 ```
 
 是不是很简单呢?
+
+演示地址:[https://abocd.github.io/qbox/demo.html](https://abocd.github.io/qbox/demo.html)
