@@ -7,6 +7,17 @@
     <meta name="description" content="">
     <meta name="author" content="aboc">
     <script type="text/javascript" src="js/qbox.js"></script>
+    <style>
+        body{
+            padding: 0;margin: 0;}
+        h3{margin: 0;padding: 0;background: #efefef;line-height: 60px;height: 60px;color: #666;font-size: 22px;text-indent: 20px;}
+        dl{margin:10px 20px;}
+        dl dt{line-height: 40px;font-family:"微软雅黑";}
+        dl dd h5{font-weight: 600;font-size:14px;}
+        dl dd pre{background: #ddd;padding: 5px;border-radius: 10px;}
+        ul{margin-left: 0;}
+        ul li{list-style: none;line-height: 3;}
+    </style>
 </head>
 <body>
 
@@ -43,6 +54,20 @@
         })
         </pre>
     </dd>
+    <dt>演示3.<a href="javascript:void(0);" onclick="demo3()">弹窗不是通栏</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>
+    var box2 = new qbox();
+    function demo3(){
+        box2.alert("弹窗不是通栏哦",function(d){
+            alert(123)
+        },{
+            title:'弹窗不是通栏',
+            themes:'default_min'
+        })
+    }</pre>
+    </dd>
 </dl>
 <ul>
 	<li>演示地址: <a href="http://abocd.github.io/qbox/demo.html" target="_blank">http://abocd.github.io/qbox/demo.html</a></li>
@@ -67,6 +92,15 @@
             }
         },{
             title:'自定义的提示标题'
+        })
+    }
+    var box2 = new qbox();
+    function demo3(){
+        box2.alert("弹窗不是通栏哦",function(d){
+            alert("我只需要传themes:'default_min' 即可")
+        },{
+            title:'弹窗不是通栏',
+            themes:'default_min'
         })
     }
 </script>
