@@ -116,12 +116,17 @@ qbox.close = function(submit){
         submit = false;
     }
     if(qbox.callback != null){
-        qbox.callback.call(qbox,submit)
-    } else {
-        var szxbox = document.getElementById("szxbox");
-        if(szxbox!=null){
-            szxbox.remove();
+        if(qbox.callback.call(qbox,submit)){
+            //回调函数内返回真,则不关闭弹窗
+           return;
         }
     }
+    qbox.hide();
     return true;
+}
+qbox.hide = function(){
+    var szxbox = document.getElementById("szxbox");
+    if(szxbox!=null){
+        szxbox.remove();
+    }
 }
