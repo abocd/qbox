@@ -112,15 +112,16 @@ function qbox(){
 qbox.callback = null;
 //关闭
 qbox.close = function(submit){
-    var szxbox = document.getElementById("szxbox");
-    if(szxbox!=null){
-        szxbox.remove();
-    }
     if(typeof submit=="undefined"){
         submit = false;
     }
     if(qbox.callback != null){
         qbox.callback.call(qbox,submit)
+    } else {
+        var szxbox = document.getElementById("szxbox");
+        if(szxbox!=null){
+            szxbox.remove();
+        }
     }
     return true;
 }
