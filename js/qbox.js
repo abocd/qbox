@@ -1,7 +1,8 @@
 /**
  * Created by aboc on 2015/1/12.
+ * @version 1.0.3
  */
-function qbox(){
+function qbox(config){
     this.param = {
         title :"系统消息",
         value:"确定",
@@ -106,6 +107,11 @@ function qbox(){
             }
         }
         return des;
+    }
+
+    if(typeof config=='object'){
+        //全局初始化了
+        this.param = this.extend(this.param,config,true);
     }
 }
 //回调函数

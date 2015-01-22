@@ -68,6 +68,35 @@
         })
     }</pre>
     </dd>
+    <dt>演示4. <a href="javascript:void(0);" onclick="demo4()">弹窗一次配置,多次有效</a> <a href="javascript:void(0);" onclick="demo5()">我和前面的兄弟一样哦</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>
+            var box3 = new qbox({title:'一次声明,都有效',themes:'default_min'});
+    function demo4(){
+        box3.alert("好吧,就是这样");
+    }
+    function demo5(){
+        box3.alert("你看,是不是一样呢");
+        </pre>
+    </dd>
+    <dt>演示5. <a  href="javascript:void(0);" onclick="demo6()">支持html代码</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>function demo6(){
+        var str = '设置等级:<select id="cool2"><option value="1级">1级</option><option value="2级">2级</option><option value="3级">3级</option></select>';
+        box3.confirm(str,function(d){
+            if(d){
+                alert('你选择了'+document.getElementById('cool2').value);
+                alert('请点关闭按钮关闭我');
+            } else {
+                alert('我要关闭了');
+                return false;
+            }
+            return true;
+        },{cancel:'关闭'});
+    }</pre>
+    </dd>
 </dl>
 <ul>
 	<li>演示地址: <a href="http://abocd.github.io/qbox/demo.html" target="_blank">http://abocd.github.io/qbox/demo.html</a></li>
@@ -102,6 +131,28 @@
             title:'弹窗不是通栏',
             themes:'default_min'
         })
+    }
+
+    var box3 = new qbox({title:'一次声明,都有效',themes:'default_min'});
+    function demo4(){
+        box3.alert("好吧,就是这样");
+    }
+    function demo5(){
+        box3.alert("你看,是不是一样呢");
+    }
+
+    function demo6(){
+        var str = '设置等级:<select id="cool"><option value="1级">1级</option><option value="2级">2级</option><option value="3级">3级</option></select>';
+        box3.confirm(str,function(d){
+            if(d){
+                alert('你选择了'+document.getElementById('cool').value);
+                alert('请点关闭按钮关闭我');
+            } else {
+                alert('我要关闭了');
+                return false;
+            }
+            return true;
+        },{cancel:'关闭'});
     }
 </script>
 </body>

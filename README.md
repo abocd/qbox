@@ -1,4 +1,5 @@
-# qbox
+# qbox 轻弹窗
+[^简洁的轻弹窗,轻量,简单,也可以适用于手机哦]
 
 #####作者:aboc Email:mayinhua@gmail.com
 
@@ -8,14 +9,11 @@
 
 ##轻弹窗的使用说明
 
-
-
 1. 引入JS文件
 
 ```javascript
 
    <script type="text/javascript" src="js/qbox.js"></script>
-
 ```
 
 2. 初始化qbox
@@ -23,8 +21,12 @@
 ```javascript
 
    var box = new qbox();
+```
+或者
+```javascript
 
-   ```
+   var box = new qbox({title:'一次声明,都有效',themes:'default_min'});
+```
 
 3. 使用
 
@@ -72,7 +74,7 @@ box.confirm("确定和取消弹出的提示不一样哦",function(d){
 
 
 
-是不是很简单呢?
+就是这么使用
 
 
 
