@@ -97,6 +97,14 @@
         },{cancel:'关闭'});
     }</pre>
     </dd>
+    <dt>演示6. <a href="javascript:void(0);" onclick="demo7()">有背景遮罩</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>var box7 = new qbox({title:'有遮罩的提示',mask:true});
+    function demo7(){
+        box7.alert("就是这个样子");
+    }</pre>
+    </dd>
 </dl>
 <ul>
 	<li>演示地址: <a href="http://abocd.github.io/qbox/demo.html" target="_blank">http://abocd.github.io/qbox/demo.html</a></li>
@@ -153,6 +161,10 @@
             }
             return true;
         },{cancel:'关闭'});
+    }
+    var box7 = new qbox({title:'有遮罩的提示',mask:true});
+    function demo7(){
+        box7.alert("就是这个样子");
     }
 </script>
 </body>
