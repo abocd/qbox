@@ -1,6 +1,6 @@
 /**
  * Created by aboc on 2015/1/12.
- * @version 1.0.3
+ * @version 1.0.5
  */
 function qbox(config){
     this.param = {
@@ -25,9 +25,7 @@ function qbox(config){
     };
     //确定按钮
     this.submit = function(click){
-        if(typeof click=="undefined"){
-            click = "qbox.prototype.close(true)";
-        }
+        click = click ||  "qbox.close(true)";
         if(click == ""){
             return '';
         }
@@ -38,9 +36,7 @@ function qbox(config){
     }
     //取消按钮
     this.cancel = function(click){
-        if(typeof click=="undefined"){
-            click = "qbox.prototype.close(false)";
-        }
+        click = click ||  "qbox.close(false)";
         if(click == ""){
             return '';
         }
@@ -50,19 +46,15 @@ function qbox(config){
         return '<span class="qbbutton" onclick="'+click+'">'+this.param.cancel+'</span>';
     }
     this.alert = function(str,callback,param){
-        if(typeof param == "undefined"){
-            param = {};
-        }
-        qbox.prototype.callback = callback;
+        param = param || {};
+        qbox.callback = callback;
 
         this.param = this.extend(this.param,param,true);
         this.box(str,this.submit());
     }
     this.confirm = function(str,callback,param){
-        if(typeof param == "undefined"){
-            param = {};
-        }
-        qbox.prototype.callback = callback;
+        param = param || {};
+        qbox.callback = callback;
         this.param = this.extend(this.param,param,true);
         this.box(str,this.submit()+this.cancel());
     }
@@ -71,9 +63,7 @@ function qbox(config){
         if(qbbox!=null){
             this.close();
         }
-        if(typeof bottom== "undefined" || bottom==""){
-            bottom = this.submit();
-        }
+        bottom = bottom || this.submit();
         var html = '<style>'+this.themes[this.param.themes]+'</style>';
         html += '<div style="text-align: center;line-height: 1.5;min-height: 60px;"><h1 class="qbheader">'+this.param.title+'</h1><div class="qbcontent">'+str+'</div><div class="qbbottom">'+bottom+'</div></div>';
         var client_width = document.body.clientWidth;
@@ -132,22 +122,20 @@ function qbox(config){
     }
 }
 //回调函数
-qbox.prototype.callback = null;
+qbox.callback = null;
 //关闭
-qbox.prototype.close = function(submit){
-    if(typeof submit=="undefined"){
-        submit = false;
-    }
-    if(qbox.prototype.callback != null){
-        if(qbox.prototype.callback.call(qbox,submit)){
+qbox.close = function(submit){
+    submit = submit || false;
+    if(qbox.callback != null){
+        if(qbox.callback.call(qbox,submit)){
             //回调函数内返回真,则不关闭弹窗
            return;
         }
     }
-    qbox.prototype.hide();
+    qbox.hide();
     return true;
 }
-qbox.prototype.hide = function(){
+qbox.hide = function(){
     var qbbox = document.getElementById("qbbox");
     if(qbbox!=null){
         qbbox.remove();
