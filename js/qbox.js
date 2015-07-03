@@ -13,18 +13,20 @@ function qbox(config){
         //皮肤
         themes:"default_box",
         //遮罩,
-        mask:false
+        mask:false,
+        //透明度
+        opacity:0.9
     };
     //皮肤
     this.themes = {
         default_box:'#qbmask{position:absolute;background:#ddd;filter:alpha(opacity=50); -moz-opacity:0.5;-khtml-opacity: 0.5; opacity: 0.5;height:100%;width:100%;z-index:999998;top:0;}#qbbox{color:#fff;font-size: 14px;width:98%;}#qbbox h1.qbheader{font-size: 15px;padding:0;line-height: 2;border-bottom: 1px solid #aaa;width: 98%;margin:0 auto;}#qbbox .qbcontent{line-height: 1.8;font-size: 13px;margin-top:10px;}#qbbox .qbbottom{margin:10px 0px 8px;}#qbbox .qbbutton{font-size:12px;display: inline-block;padding: 2px 5px;background: #999;color: #333;cursor: pointer;margin-left:3px;margin-right:3px;}#qbbox .qbbutton.qbsubmit{background: #afafaf}',
         //小型
-        default_min:'#qbbox{color:#fff;font-size: 14px;min-width: 350px;}#qbbox h1.qbheader{font-size: 15px;padding:0;line-height: 2;border-bottom: 1px solid #aaa;margin:0 auto;}#qbbox .qbcontent{line-height: 1.8;font-size: 13px;margin-top:10px;}#qbbox .qbbottom{margin:10px 0px 8px;}#qbbox .qbbutton{font-size:12px;display: inline-block;padding: 2px 5px;background: #999;color: #333;cursor: pointer;margin-left:3px;margin-right:3px;}#qbbox .qbbutton.qbsubmit{background: #afafaf}'
+        default_min:'#qbmask{position:absolute;background:#ddd;filter:alpha(opacity=50); -moz-opacity:0.5;-khtml-opacity: 0.5; opacity: 0.5;height:100%;width:100%;z-index:999998;top:0;}#qbbox{color:#fff;font-size: 14px;min-width: 350px;}#qbbox h1.qbheader{font-size: 15px;padding:0;line-height: 2;border-bottom: 1px solid #aaa;margin:0 auto;}#qbbox .qbcontent{line-height: 1.8;font-size: 13px;margin-top:10px;}#qbbox .qbbottom{margin:10px 0px 8px;}#qbbox .qbbutton{font-size:12px;display: inline-block;padding: 2px 5px;background: #999;color: #333;cursor: pointer;margin-left:3px;margin-right:3px;}#qbbox .qbbutton.qbsubmit{background: #afafaf}'
     };
     //确定按钮
     this.submit = function(click){
         if(typeof click=="undefined"){
-            click = "qbox.close(true)";
+            click = "qbox.prototype.close(true)";
         }
         if(click == ""){
             return '';
@@ -37,7 +39,7 @@ function qbox(config){
     //取消按钮
     this.cancel = function(click){
         if(typeof click=="undefined"){
-            click = "qbox.close(false)";
+            click = "qbox.prototype.close(false)";
         }
         if(click == ""){
             return '';
@@ -51,7 +53,7 @@ function qbox(config){
         if(typeof param == "undefined"){
             param = {};
         }
-        qbox.callback = callback;
+        qbox.prototype.callback = callback;
 
         this.param = this.extend(this.param,param,true);
         this.box(str,this.submit());
@@ -60,7 +62,7 @@ function qbox(config){
         if(typeof param == "undefined"){
             param = {};
         }
-        qbox.callback = callback;
+        qbox.prototype.callback = callback;
         this.param = this.extend(this.param,param,true);
         this.box(str,this.submit()+this.cancel());
     }
@@ -81,8 +83,8 @@ function qbox(config){
         qbbox.style.margin = "0 auto;";
         qbbox.style.top = "32%";
         qbbox.style.background="#666";
-        qbbox.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=90";
-        qbbox.style.opacity="0.90";
+        qbbox.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity="+this.param.opacity*100+")";
+        qbbox.style.opacity=this.param.opacity;
         qbbox.style.left = "10px";
         qbbox.style.zIndex = "999999";
         qbbox.innerHTML = html;
@@ -130,22 +132,22 @@ function qbox(config){
     }
 }
 //回调函数
-qbox.callback = null;
+qbox.prototype.callback = null;
 //关闭
-qbox.close = function(submit){
+qbox.prototype.close = function(submit){
     if(typeof submit=="undefined"){
         submit = false;
     }
-    if(qbox.callback != null){
-        if(qbox.callback.call(qbox,submit)){
+    if(qbox.prototype.callback != null){
+        if(qbox.prototype.callback.call(qbox,submit)){
             //回调函数内返回真,则不关闭弹窗
            return;
         }
     }
-    qbox.hide();
+    qbox.prototype.hide();
     return true;
 }
-qbox.hide = function(){
+qbox.prototype.hide = function(){
     var qbbox = document.getElementById("qbbox");
     if(qbbox!=null){
         qbbox.remove();
