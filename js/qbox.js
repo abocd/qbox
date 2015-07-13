@@ -107,7 +107,7 @@ function qbox(config){
      * @param callback
      * @param param
      */
-    this.prompt = function(str,callback,param){
+    this.tips = function(str,callback,param){
         if(typeof callback == 'object'){
             param = callback ||{};
         } else {
