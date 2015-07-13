@@ -201,10 +201,10 @@ qbox.close = function(submit){
 qbox.hide = function(){
     var qbbox = document.getElementById("qbbox");
     if(qbbox!=null){
-        qbbox.remove();
+        qbbox.parentNode.removeChild(qbbox)
     }
     var qbmask = document.getElementById("qbmask");
     if (qbmask != null) {
-        qbmask.remove();
+        qbmask.parentNode.removeChild(qbmask);
     }
 };
