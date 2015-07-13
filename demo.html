@@ -54,21 +54,7 @@
         })
         </pre>
     </dd>
-    <dt>演示3.<a href="javascript:void(0);" onclick="demo3()">弹窗不是通栏</a></dt>
-    <dd>
-        <h5>代码</h5>
-        <pre>
-    var box2 = new qbox();
-    function demo3(){
-        box2.alert("弹窗不是通栏哦",function(d){
-            alert("我只需要传themes:'default_min' 即可")
-        },{
-            title:'弹窗不是通栏',
-            themes:'default_min'
-        })
-    }</pre>
-    </dd>
-    <dt>演示4. <a href="javascript:void(0);" onclick="demo4()">弹窗一次配置,多次有效</a> <a href="javascript:void(0);" onclick="demo5()">我和前面的兄弟一样哦</a></dt>
+    <dt>演示3. <a href="javascript:void(0);" onclick="demo4()">弹窗一次配置,多次有效</a> <a href="javascript:void(0);" onclick="demo5()">我和前面的兄弟一样哦</a></dt>
     <dd>
         <h5>代码</h5>
         <pre>
@@ -80,7 +66,7 @@
         box3.alert("你看,是不是一样呢");
         </pre>
     </dd>
-    <dt>演示5. <a  href="javascript:void(0);" onclick="demo6()">支持html代码</a></dt>
+    <dt>演示4. <a  href="javascript:void(0);" onclick="demo6()">支持html代码</a></dt>
     <dd>
         <h5>代码</h5>
         <pre>function demo6(){
@@ -97,13 +83,24 @@
         },{cancel:'关闭'});
     }</pre>
     </dd>
-    <dt>演示6. <a href="javascript:void(0);" onclick="demo7()">有背景遮罩</a></dt>
+    <dt>演示5. <a href="javascript:void(0);" onclick="demo7()">有背景遮罩</a></dt>
     <dd>
         <h5>代码</h5>
         <pre>var box7 = new qbox({title:'有遮罩的提示',mask:true});
     function demo7(){
         box7.alert("就是这个样子");
     }</pre>
+    </dd>
+    <dt>演示6. <a href="javascript:void(0);" onclick="demo8()">提示框</a></dt>
+    <dd>
+        <h5>代码</h5>
+        <pre>
+function demo8(){
+        new qbox().prompt('这是提示',{
+            second:2
+        });
+    }
+        </pre>
     </dd>
 </dl>
 <ul>
@@ -131,17 +128,8 @@
             title:'自定义的提示标题'
         })
     }
-    var box2 = new qbox();
-    function demo3(){
-        box2.alert("弹窗不是通栏哦",function(d){
-            alert("我只需要传themes:'default_min' 即可")
-        },{
-            title:'弹窗不是通栏',
-            themes:'default_min'
-        })
-    }
 
-    var box3 = new qbox({title:'一次声明,都有效',themes:'default_min'});
+    var box3 = new qbox({title:'一次声明,都有效',themes:'default_box'});
     function demo4(){
         box3.alert("好吧,就是这样");
     }
@@ -165,6 +153,11 @@
     var box7 = new qbox({title:'有遮罩的提示',mask:true});
     function demo7(){
         box7.alert("就是这个样子");
+    }
+    function demo8(){
+        new qbox().prompt('这是提示',{
+            second:2
+        });
     }
 </script>
 </body>
