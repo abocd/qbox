@@ -133,6 +133,9 @@ function qbox(config){
         } else {
             bottom = bottom || this.submit();
         }
+        if(typeof this.themes[this.param.themes] === 'undefined'){
+            this.param.themes = 'default_box';
+        }
         var html = '<style>'+this.themes[this.param.themes]+'</style>';
         html += '<div style="text-align: center;line-height: 1.5;">'
         if(this.show_title) {
